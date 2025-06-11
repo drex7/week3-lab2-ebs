@@ -9,7 +9,6 @@ phases:
     commands:
       - yarn install
       - yarn build
-      - yarn run prisma:generate # Generate Prisma client
       - yarn run prisma:migrate # Run Prisma migrations
   post_build:
     commands:

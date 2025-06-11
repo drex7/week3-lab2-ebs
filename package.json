@@ -7,6 +7,7 @@
   "packageManager": "yarn@1.22.22",
   "scripts": {
     "dev": "nuxt dev",
+    "prebuild": "yarn prisma:generate",
     "build": "nuxt build",
     "start:dev": "dotenv -e .env -- node .output/server/index.mjs",
     "start": "node .output/server/index.mjs",
