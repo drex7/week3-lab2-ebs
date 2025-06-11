@@ -13,6 +13,7 @@ phases:
   build:
     on-failure: ABORT
     commands:
+      - cat env # Debug: Print environment variables
       - yarn install
       - echo "DATABASE_URL is $DATABASE_URL" # Debug: Verify DATABASE_URL
       - DATABASE_URL=$DATABASE_URL yarn build
