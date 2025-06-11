@@ -23,6 +23,8 @@ jobs:
         yarn install
 
     - name: Build the application 
+      env:
+        DB_URL: ${{ secrets.DATABASE_URL }}
       run: |
         echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env # Set environment variable
         cat .env # Debug: Print environment variables
@@ -42,4 +44,4 @@ jobs:
       run: |
         aws s3 cp app.zip s3://${{ secrets.EB_S3_BUCKET }}
       env:
-        S3_BUCKET: ${{ secrets.EB_S3_BUCKET }}
+        EB_S3_BUCKET: ${{ secrets.EB_S3_BUCKET }}
