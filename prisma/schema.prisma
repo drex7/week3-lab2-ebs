@@ -1,11 +1,14 @@
+
+
 generator client {
-  provider = "prisma-client-js"            
-  output   = "./generated/prisma"
-  binaryTargets = ["native", "rhel-openssl-1.0.x"]
+  provider     = "prisma-client"
+  output       = "../generated/prisma"
+  binaryTargets = ["native"]
+  moduleFormat = "esm"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL") // e.g. "file:./dev.db"
 }
 

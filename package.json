@@ -3,16 +3,21 @@
   "version": "2.0.0",
   "private": true,
   "license": "MIT",
+  "type": "module",
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
+    "start:dev": "dotenv -e .env -- node .output/server/index.mjs",
     "start": "node .output/server/index.mjs",
     "generate": "nuxt generate",
-    "prisma:generate": "prisma generate"
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "npx prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "6.9.0",
     "@prisma/extension-accelerate": "^2.0.1",
+    "dotenv-cli": "^8.0.0",
     "nuxt": "3.17.5"
   },
   "devDependencies": {

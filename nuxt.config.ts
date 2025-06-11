@@ -1,9 +1,14 @@
-import { resolve } from "path";
+import { fileURLToPath } from "url";
 
 export default defineNuxtConfig({
+  compatibilityDate: '2025-06-10',
   // Disable strict
   typescript: {
     strict: false,
+  },
+  alias: {
+      "@": "/",
+      "~prismaClient": fileURLToPath(new URL('./generated/prisma', import.meta.url))
   },
   app: {
     head: {
@@ -16,16 +21,24 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
   },
-  alias: {
-    "@": "/",
-    prismaClient: resolve(__dirname, "./prisma/generated/prisma"),
-  },
-  ssr: true,
-  server: {
-    port: 3000, // Elastic Beanstalk expects port 3000
-  },
-  build: {
-    // Optional: Optimize for production
-    hardSource: true,
-  },
+  // ssr: true,
+  nitro: {
+    replace: {
+      'import * as process': 'import * as processUnused',
+    },
+    preset: "node-server", // Ensures full Node.js support (needed for Prisma)
+    esbuild: {
+      options: {
+        target: "es2022", 
+      },
+    },
+    externals: {
+      external: [
+        ".prisma", // ignore Prisma internals
+        "@prisma/client", // don't bundle Prisma
+        "prisma", // don't bundle Prisma CLI
+        "process", // Node.js process module
+      ],
+    },
+  }
 });

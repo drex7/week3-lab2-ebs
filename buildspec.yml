@@ -9,6 +9,7 @@ phases:
     commands:
       - yarn install
       - yarn run prisma:generate # Generate Prisma client
+      - yarn run prisma:migrate # Run Prisma migrations
   build:
     commands:
       - yarn build
@@ -18,8 +19,8 @@ phases:
       - sleep 5 # Wait for the app to start
       - curl -f http://localhost:3000 || exit 1 # Verify the app starts
       - echo "Zipping app for Elastic Beanstalk..."
-      - zip -r app.zip . -x "node_modules/*" ".git/*" "*.zip"
+      - zip -r app.zip . -x "node_modules/*" ".git/*" "*.zip" 
 artifacts:
   files:
-    - '**/*'
+    - 'app.zip'
   base-directory: '.'
