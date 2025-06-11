@@ -5,14 +5,12 @@ phases:
       nodejs: 20 
     commands:
       - npm install -g yarn
-  pre_build:
-    commands:
-      - yarn install
-      - yarn run prisma:generate # Generate Prisma client
-      - yarn run prisma:migrate # Run Prisma migrations
   build:
     commands:
+      - yarn install
       - yarn build
+      - yarn run prisma:generate # Generate Prisma client
+      - yarn run prisma:migrate # Run Prisma migrations
   post_build:
     commands:
       - yarn start & # Start the app in the background to verify
@@ -20,6 +18,7 @@ phases:
       - curl -f http://localhost:3000 || exit 1 # Verify the app starts
       - echo "Zipping app for Elastic Beanstalk..."
       - zip -r app.zip . -x "node_modules/*" ".git/*" "*.zip" 
+      # - aws s3 cp app.zip s3://eb-app-bucket-week3/ --region eu-central-1
 artifacts:
   files:
     - 'app.zip'
