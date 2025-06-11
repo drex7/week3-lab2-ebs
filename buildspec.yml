@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   parameter-store:
-    DATABASE_URL: /week3-lab2/db-url
+    DATABASE_URL: "/week3-lab2/db-url"
 
 phases:
   install:
