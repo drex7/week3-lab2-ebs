@@ -14,6 +14,7 @@ phases:
     on-failure: ABORT
     commands:
       - yarn install
+      - echo "DATABASE_URL is $DATABASE_URL" # Debug: Verify DATABASE_URL
       - DATABASE_URL=$DATABASE_URL yarn build
       - yarn run prisma:migrate # Run Prisma migrations
   post_build:
