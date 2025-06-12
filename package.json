@@ -8,7 +8,7 @@
     "dev": "nuxt dev",
     "prebuild": "npm run prisma:generate",
     "build": "nuxt build",
-    "start": "PORT=8080 node dotenv -e .env -- .output/server/index.mjs",
+    "start": "PORT=8080 node .output/server/index.mjs",
     "generate": "nuxt generate",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate deploy"
