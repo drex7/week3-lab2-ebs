@@ -23,6 +23,7 @@ export default defineNuxtConfig({
   },
   // ssr: true,
   nitro: {
+    
     replace: {
       'import * as process': 'import * as processUnused',
     },

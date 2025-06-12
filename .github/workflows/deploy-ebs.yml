@@ -18,9 +18,7 @@ jobs:
         node-version: '20'
 
     - name: Install dependencies
-      run: |
-        npm install -g yarn
-        yarn install
+      run: npm install
 
     - name: Build the application 
       env:
@@ -28,7 +26,7 @@ jobs:
       run: |
         echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env # Set environment variable
         cat .env # Debug: Print environment variables
-        yarn build    
+        npm run build
 
     - name: ZIP application package
       run: zip -r app.zip . -x "node_modules/*" ".git/*" "*.zip"
