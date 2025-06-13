@@ -1,4 +1,5 @@
-import { prisma } from "../../lib/db
+import { prisma } from "../../lib/db";
+
 
 // https://nuxt.com/docs/guide/directory-structure/server
 export default defineEventHandler(async (event) => {
