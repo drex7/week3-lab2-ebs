@@ -26,6 +26,7 @@ jobs:
       run: |
         echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env # Set environment variable
         cat .env # Debug: Print environment variables
+        npm run prebuild 
         npm run build
 
     - name: ZIP application package
