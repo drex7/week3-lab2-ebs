@@ -1,6 +1,6 @@
 # Fullstack Blog App with NuxtJs (REST API)
 
-This app implement a **fullstack app with [Nuxt](https://nuxtjs.org//)** using [Vue](https://vuejs.org/) (frontend) and [Prisma Client](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client) (backend). It uses a SQLite database file with some initial dummy data which you can find at [`./prisma/dev.db`](./prisma/dev.db) and AWS RDS postgres DB.
+This app implement a **fullstack app with [Nuxt](https://nuxtjs.org//)** using [Vue](https://vuejs.org/) (frontend) and **Prisma Client** with AWS RDS Pstgres DB.
 
 ## Getting started
 
@@ -39,6 +39,12 @@ npx prisma db seed
 
 ```
 npm run dev
+```
+
+### 3. Build for production
+
+```
+npm run build
 ```
 
 The app is now running, navigate to [`http://localhost:3000/`](http://localhost:3000/) in your browser to explore its UI.
