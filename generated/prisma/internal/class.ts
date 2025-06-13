@@ -34,6 +34,10 @@ const config: runtime.GetPrismaClientConfig = {
         "fromEnvVar": null,
         "value": "debian-openssl-3.0.x",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "rhel-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -56,8 +60,8 @@ const config: runtime.GetPrismaClientConfig = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider      = \"prisma-client\"\n  output        = \"../generated/prisma\"\n  binaryTargets = [\"native\"]\n  moduleFormat  = \"esm\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id        Int      @id @default(autoincrement())\n  email     String   @unique\n  name      String?\n  posts     Post[]\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel Post {\n  id        Int      @id @default(autoincrement())\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  title     String\n  content   String?\n  published Boolean  @default(false)\n  viewCount Int      @default(0)\n  author    User?    @relation(fields: [authorId], references: [id])\n  authorId  Int?\n}\n",
-  "inlineSchemaHash": "a2a1bbdf03628fcf8b017a769d8fcf5d8c7916f03b46520f4c9c32e0e18383f8",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client\"\n  output        = \"../generated/prisma\"\n  binaryTargets = [\"native\", \"rhel-openssl-3.0.x\"]\n  moduleFormat  = \"esm\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id        Int      @id @default(autoincrement())\n  email     String   @unique\n  name      String?\n  posts     Post[]\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel Post {\n  id        Int      @id @default(autoincrement())\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  title     String\n  content   String?\n  published Boolean  @default(false)\n  viewCount Int      @default(0)\n  author    User?    @relation(fields: [authorId], references: [id])\n  authorId  Int?\n}\n",
+  "inlineSchemaHash": "c22a61419eb0ece275f41d51150473ad2b03751b4d6bb4965f48056f0bdb5bb3",
   "copyEngine": true,
   "runtimeDataModel": {
     "models": {},

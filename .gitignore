@@ -42,6 +42,14 @@ web_modules/
 dist
 .output
 
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+
 # Prisma build / generate output
 
 
