@@ -29,7 +29,7 @@ jobs:
         npm run build
 
     - name: ZIP application package
-      run: zip -r app.zip . -x "node_modules/*" ".git/*" "*.zip"
+      run: zip -r app.zip . -x ".git/*" "*.zip"
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4

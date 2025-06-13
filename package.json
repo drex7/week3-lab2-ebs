@@ -14,7 +14,8 @@
     "preview": "nuxt preview",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate deploy",
-    "posti8nstall": "cd packages/database && turbo run prisma:generate && mkdir -p ../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/@prisma/client && cp ../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/.prisma/client/libquery_engine-rhel-openssl-3.0.x.so.node ../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/@prisma/client/"
+    "posti8nstall": "cd packages/database && turbo run prisma:generate && mkdir -p ../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/@prisma/client && cp ../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/.prisma/client/libquery_engine-rhel-openssl-3.0.x.so.node ../../node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/@prisma/client/",
+    "sdr": "mv ./generated/prisma/schema.prisma .output/server/node_modules/@prisma/client"
 
   },
   "dependencies": {
