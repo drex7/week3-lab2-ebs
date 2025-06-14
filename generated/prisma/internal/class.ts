@@ -55,13 +55,13 @@ const config: runtime.GetPrismaClientConfig = {
   "inlineDatasources": {
     "db": {
       "url": {
-        "fromEnvVar": "DATABASE_URL",
+        "fromEnvVar": "DATABASE_URL1",
         "value": null
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider      = \"prisma-client\"\n  output        = \"../generated/prisma\"\n  binaryTargets = [\"native\", \"rhel-openssl-3.0.x\"]\n  moduleFormat  = \"esm\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id        Int      @id @default(autoincrement())\n  email     String   @unique\n  name      String?\n  posts     Post[]\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel Post {\n  id        Int      @id @default(autoincrement())\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  title     String\n  content   String?\n  published Boolean  @default(false)\n  viewCount Int      @default(0)\n  author    User?    @relation(fields: [authorId], references: [id])\n  authorId  Int?\n}\n",
-  "inlineSchemaHash": "c22a61419eb0ece275f41d51150473ad2b03751b4d6bb4965f48056f0bdb5bb3",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client\"\n  output        = \"../generated/prisma\"\n  binaryTargets = [\"native\", \"rhel-openssl-3.0.x\"]\n  moduleFormat  = \"esm\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL1\")\n}\n\nmodel User {\n  id        Int      @id @default(autoincrement())\n  email     String   @unique\n  name      String?\n  posts     Post[]\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel Post {\n  id        Int      @id @default(autoincrement())\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  title     String\n  content   String?\n  published Boolean  @default(false)\n  viewCount Int      @default(0)\n  author    User?    @relation(fields: [authorId], references: [id])\n  authorId  Int?\n}\n",
+  "inlineSchemaHash": "e4003b7193a87f9deba0e6b9a459217bc5c8901925ab66d4abc156dcd394656f",
   "copyEngine": true,
   "runtimeDataModel": {
     "models": {},

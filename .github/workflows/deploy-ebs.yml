@@ -21,12 +21,7 @@ jobs:
       run: npm install
 
     - name: Build the application 
-      env:
-        DB_URL: ${{ secrets.DATABASE_URL }}
-      run: |
-        echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env # Set environment variable
-        cat .env # Debug: Print environment variables
-        npm run build
+      run: npm run build
 
     - name: ZIP application package
       run: zip -r app.zip . -x ".git/*" "*.zip"

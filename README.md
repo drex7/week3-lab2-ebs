@@ -15,7 +15,7 @@ git clone repo-url
 Install npm dependencies:
 
 ```
-yarn install
+npm install
 ```
 
 ### 2. Create and seed the database
